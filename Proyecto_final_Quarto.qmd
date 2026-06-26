@@ -6,7 +6,7 @@ editor: visual
 
 # **Proyecto Final del curso intersemestral "Code & Data Bootcamp: Git, Bash y R"**
 
-### Autores: 
+### Autores:
 
 1.  Brenda Avelina López Muñiz
 
@@ -20,7 +20,11 @@ La base de datos contiene información sobre los dinosaurios descubiertos hasta 
 
 ![](https://www.cmosc.org/wp-content/uploads/2025/05/Dinosaurs_of_California_Dino_Facts_for_Kids.webp){fig-align="center" width="300"}
 
-## 2. Exploración del dataset 
+::: {style="text-align: center"}
+Figura 1. Reconstrucción de fauna del Cretácico Tardío.
+:::
+
+## 2. Exploración del dataset
 
 ### 2.1 Documentación del proceso de descarga
 
@@ -30,19 +34,19 @@ Pendiente
 
 El dataset cuenta con cuatro columnas corresponientes a las categorías:
 
--   **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
+- **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
 
--   **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
+- **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
 
--   **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
+- **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
 
--   **País (Country)**: Señala el país de colecta y registro del ejemplar
+- **País (Country)**: Señala el país de colecta y registro del ejemplar
 
-    ```{r}
-    dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
-    colnames(dinosaurios)
-    class(dinosaurios)
-    ```
+  ```{r}
+  dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
+  colnames(dinosaurios)
+  class(dinosaurios)
+  ```
 
 ### 2.3 Dimensiones del DataFrame
 
@@ -53,20 +57,62 @@ ncol(dinosaurios)
 nrow(dinosaurios)
 ```
 
-# ANÁLISIS Y RESULTADOS
+# 3. ANÁLISIS Y RESULTADOS
 
-## Preguntas de investigación
+## 3.1 Preguntas de investigación
 
 La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:
 
--   ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
+- ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
 
--   ¿En qué país se han encontrado más fósiles de dinosaurios?
+- ¿En qué país se han encontrado más fósiles de dinosaurios?
 
--   ¿Existe alguna relación entre la dieta y el periodo?
+- ¿Existe alguna relación entre la dieta y el periodo?
 
--   ¿Existe alguna relación entre la dieta y los taxones registrados?
+- ¿Existe alguna relación entre la dieta y los taxones registrados?
 
--   ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
+- ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
--   
+## 3.2 Exploración Inicial
+
+```{r}
+head(dinosaur)
+```
+
+```{r}
+dim(dinosaur)
+```
+
+4 Columnas y 1154 filas
+
+```{r}
+names(dinosaur)
+```
+
+```{r}
+glimpse(dinosaur)
+```
+
+## 3.3 Limpieza básica de datos
+
+```{r}
+colSums(is.na(dinosaur))
+class(dinosaur$Name)
+class(dinosaur$Period)
+class(dinosaur$Diet)
+class(dinosaur$Country)
+
+library(dplyr)
+
+dinosaurs_limpio <- dinosaur %>%
+  tidyr::drop_na()
+```
+
+### 3.3.1 Comparación de las bases de datos
+
+```{r}
+dim(dinosaur)
+dim(dinosaurs_limpio)
+```
+
+El database no posee datos faltantes, por lo cual no hay cambio entre una y otra.
