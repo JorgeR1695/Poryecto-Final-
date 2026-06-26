@@ -4,11 +4,52 @@ format: html
 editor: visual
 ---
 
-## Quarto
+# Proyecto Final del curso intersemestral "Code & Data Bootcamp: Git, Bash y R"
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Brenda A. López Muñiz y Jorge Alberto Rivera Aquino
 
-## Running Code
+En este proyecto se analizará un data set con información pertenciente a diferentes grupos de dinosaurios (*Dinosauria*), planteando las preguntas de investigación más relevantes.
+
+El data set puede ser consultado en la siguiente liga: <https://www.kaggle.com/datasets/kumazaki98/dinosaur-list/data>
+
+# INFORMACIÓN BÁSICA
+
+## Documentación del proceso de descarga
+
+Pendiente
+
+## Columnas del Dataset
+
+El dataset cuenta con cuatro columnas corresponientes a las categorías:
+
+- **Nombre**: Refiere a su clasificación taxonómica a nivel de género
+- **Periodo**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
+- **Tipo de Dieta**: Descrive el tipo de dienta inferido para ese taxón
+- **País**: Señala el país de colecta y registro del ejemplar
+
+## Dimensiones del DataFrame
+
+El dataframe cuenta con un total de 1,154 filas y 4 columnas
+
+## Datos analizados
+
+Los datos dentro del dataset son datos discretos de caracter nominal.
+
+# ANÁLISIS Y RESULTADOS
+
+## Preguntas de investigación
+
+La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:
+
+- ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
+
+- ¿En qué país se han encontrado más fósiles de dinosaurios?
+
+- ¿Existe alguna relación entre la dieta y el periodo?
+
+- ¿Existe alguna relación entre la dieta y los taxones registrados?
+
+- ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
