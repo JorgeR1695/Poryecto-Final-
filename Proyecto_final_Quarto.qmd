@@ -4,36 +4,54 @@ format: html
 editor: visual
 ---
 
-# Proyecto Final del curso intersemestral "Code & Data Bootcamp: Git, Bash y R"
+# **Proyecto Final del curso intersemestral "Code & Data Bootcamp: Git, Bash y R"**
 
-Brenda A. López Muñiz y Jorge Alberto Rivera Aquino
+### Autores: 
 
-En este proyecto se analizará un data set con información pertenciente a diferentes grupos de dinosaurios (*Dinosauria*), planteando las preguntas de investigación más relevantes.
+1.  Brenda Avelina López Muñiz
 
-El data set puede ser consultado en la siguiente liga: <https://www.kaggle.com/datasets/kumazaki98/dinosaur-list/data>
+2.  Jorge Alberto Rivera Aquino
 
-# INFORMACIÓN BÁSICA
+## 1. Introducción
 
-## Documentación del proceso de descarga
+Este proyecto analiza un data set con información sobre diferentes grupos de dinosaurios (*Dinosauria*), planteando las preguntas de investigación más relevantes.
+
+La base de datos contiene información sobre los dinosaurios descubiertos hasta ahora. Los datos se catalogan como discretos de caracter nominal. El data set puede ser consultado en la siguiente liga [Base de datos de Dinosaurio](https://www.kaggle.com/datasets/kumazaki98/dinosaur-list/data)
+
+![](https://www.cmosc.org/wp-content/uploads/2025/05/Dinosaurs_of_California_Dino_Facts_for_Kids.webp){fig-align="center" width="300"}
+
+## 2. Exploración del dataset 
+
+### 2.1 Documentación del proceso de descarga
 
 Pendiente
 
-## Columnas del Dataset
+### 2.2 Información contenida en la base datos
 
 El dataset cuenta con cuatro columnas corresponientes a las categorías:
 
-- **Nombre**: Refiere a su clasificación taxonómica a nivel de género
-- **Periodo**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
-- **Tipo de Dieta**: Descrive el tipo de dienta inferido para ese taxón
-- **País**: Señala el país de colecta y registro del ejemplar
+-   **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
 
-## Dimensiones del DataFrame
+-   **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
+
+-   **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
+
+-   **País (Country)**: Señala el país de colecta y registro del ejemplar
+
+    ```{r}
+    dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
+    colnames(dinosaurios)
+    class(dinosaurios)
+    ```
+
+### 2.3 Dimensiones del DataFrame
 
 El dataframe cuenta con un total de 1,154 filas y 4 columnas
 
-## Datos analizados
-
-Los datos dentro del dataset son datos discretos de caracter nominal.
+```{r}
+ncol(dinosaurios)
+nrow(dinosaurios)
+```
 
 # ANÁLISIS Y RESULTADOS
 
@@ -41,27 +59,14 @@ Los datos dentro del dataset son datos discretos de caracter nominal.
 
 La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:
 
-- ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
+-   ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
 
-- ¿En qué país se han encontrado más fósiles de dinosaurios?
+-   ¿En qué país se han encontrado más fósiles de dinosaurios?
 
-- ¿Existe alguna relación entre la dieta y el periodo?
+-   ¿Existe alguna relación entre la dieta y el periodo?
 
-- ¿Existe alguna relación entre la dieta y los taxones registrados?
+-   ¿Existe alguna relación entre la dieta y los taxones registrados?
 
-- ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
+-   ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
+-   
