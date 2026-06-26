@@ -108,11 +108,42 @@ dinosaurs_limpio <- dinosaur %>%
   tidyr::drop_na()
 ```
 
-### 3.3.1 Comparación de las bases de datos
+## 3.3.1 Correctos de datos erróneos
+
+```{r}
+dinosaur_limpio <- dinosaur %>%
+  mutate(Diet = recode(Diet, "herbivore" = "Herbivore")) %>%
+  mutate(Diet = recode(Diet, "(herbivore)" = "Herbivore")) %>%
+  mutate(Diet = recode(Diet, "omnivorous" = "Omnivorous")) %>%
+  mutate(Diet = recode(Diet, "omnivore" = "Omnivorous")) %>%
+  mutate(Diet = recode(Diet, "(carnivore)" = "Carnivore")) %>%
+  mutate(Diet = recode(Diet, "carnivore" = "Carnivore")) %>%
+  mutate(Diet = recode(Diet, "carnivore?" = "Carnivore?")) %>%
+  mutate(Diet = recode(Diet, "(unknown)" = "unknown")) %>%
+  mutate(Diet = recode(Diet, "?" = "unknown")) %>%
+  mutate(Period = recode(Period, "Cretaceous       " = "Cretaceous"))
+```
+
+```{r}
+dinosaur_limpio$Country[
+    grepl("\\.$", dinosaur_limpio$Country) |
+      grepl("&", dinosaur_limpio$Country)
+  ] <- "unknown"
+```
+
+### 3.4 Comparación de las bases de datos
 
 ```{r}
 dim(dinosaur)
 dim(dinosaurs_limpio)
 ```
 
-El database no posee datos faltantes, por lo cual no hay cambio entre una y otra.
+Las filas y columnas no fueron modificadas, sin embargo si se modificaron las varibles nominales de las categorías "Diet", "Country" y "Period".
+
+```{r}
+unique(dinosaur$Diet)
+```
+
+```{r}
+unique(dinosaur_limpio$Diet)
+```
