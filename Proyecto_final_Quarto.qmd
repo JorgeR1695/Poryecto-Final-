@@ -34,19 +34,19 @@ Pendiente
 
 El dataset cuenta con cuatro columnas corresponientes a las categorías:
 
-- **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
+-   **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
 
-- **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
+-   **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
 
-- **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
+-   **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
 
-- **País (Country)**: Señala el país de colecta y registro del ejemplar
+-   **País (Country)**: Señala el país de colecta y registro del ejemplar
 
-  ```{r}
-  dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
-  colnames(dinosaurios)
-  class(dinosaurios)
-  ```
+    ```{r}
+    dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
+    colnames(dinosaurios)
+    class(dinosaurios)
+    ```
 
 ### 2.3 Dimensiones del DataFrame
 
@@ -63,87 +63,169 @@ nrow(dinosaurios)
 
 La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:
 
-- ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
+-   ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
 
-- ¿En qué país se han encontrado más fósiles de dinosaurios?
+-   ¿En qué país se han encontrado más fósiles de dinosaurios?
 
-- ¿Existe alguna relación entre la dieta y el periodo?
+-   ¿Existe alguna relación entre la dieta y el periodo?
 
-- ¿Existe alguna relación entre la dieta y los taxones registrados?
+-   ¿Existe alguna relación entre la dieta y los taxones registrados?
 
-- ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
+-   ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
-## 3.2 Exploración Inicial
-
-```{r}
-head(dinosaur)
-```
+## 3.2 Limpieza básica de datos
 
 ```{r}
-dim(dinosaur)
-```
-
-4 Columnas y 1154 filas
-
-```{r}
-names(dinosaur)
-```
-
-```{r}
-glimpse(dinosaur)
-```
-
-## 3.3 Limpieza básica de datos
-
-```{r}
-colSums(is.na(dinosaur))
-class(dinosaur$Name)
-class(dinosaur$Period)
-class(dinosaur$Diet)
-class(dinosaur$Country)
+colSums(is.na(dinosaurios))
+class(dinosaurios$Name)
+class(dinosaurios$Period)
+class(dinosaurios$Diet)
+class(dinosaurios$Country)
 
 library(dplyr)
 
-dinosaurs_limpio <- dinosaur %>%
+dinosaurs_limpio <- dinosaurios %>%
   tidyr::drop_na()
 ```
 
-## 3.3.1 Correctos de datos erróneos
+## 3.2.1 Corrección de datos
+
+La base de datos no es homogénea. Entre sus categorías, se combina nomenclatura como "herbivore" y "(herbivore)". Esto produce un análisis erróneo, por lo que en los códigos siguientes se reemplazan las etiquetas con escritura incorrecta para el caso de "Dieta".
 
 ```{r}
-dinosaur_limpio <- dinosaur %>%
+dinosaur_limpio <- dinosaurios %>%
   mutate(Diet = recode(Diet, "herbivore" = "Herbivore")) %>%
   mutate(Diet = recode(Diet, "(herbivore)" = "Herbivore")) %>%
   mutate(Diet = recode(Diet, "omnivorous" = "Omnivorous")) %>%
   mutate(Diet = recode(Diet, "omnivore" = "Omnivorous")) %>%
   mutate(Diet = recode(Diet, "(carnivore)" = "Carnivore")) %>%
   mutate(Diet = recode(Diet, "carnivore" = "Carnivore")) %>%
-  mutate(Diet = recode(Diet, "carnivore?" = "Carnivore?")) %>%
+  mutate(Diet = recode(Diet, "carnivore?" = "Carnivore")) %>%
   mutate(Diet = recode(Diet, "(unknown)" = "unknown")) %>%
   mutate(Diet = recode(Diet, "?" = "unknown")) %>%
   mutate(Period = recode(Period, "Cretaceous       " = "Cretaceous"))
+
+
 ```
 
+La columna "Country" tiene, en algunos casos, más de un país y en otros, comentarios u observaciones que no corresponden con la categoría. Para ello, se observa que los comentarios terminan en [punto (.)]{.underline} y los que contienen diferentes países [et (&)]{.underline}. Tomando ventaja de este patrón, se realiza el siguiente código:
+
 ```{r}
-dinosaur_limpio$Country[
+dinosaurios$Country[
     grepl("\\.$", dinosaur_limpio$Country) |
-      grepl("&", dinosaur_limpio$Country)
+      grepl("&", dinosaur_limpio$Country) |
+      grepl(",",dinosaur_limpio$Country)
   ] <- "unknown"
 ```
 
-### 3.4 Comparación de las bases de datos
-
 ```{r}
-dim(dinosaur)
-dim(dinosaurs_limpio)
-```
-
-Las filas y columnas no fueron modificadas, sin embargo si se modificaron las varibles nominales de las categorías "Diet", "Country" y "Period".
-
-```{r}
-unique(dinosaur$Diet)
+unique(dinosaurios$Diet)
 ```
 
 ```{r}
 unique(dinosaur_limpio$Diet)
+```
+
+```{r}
+unique(dinosaur_limpio$Country)
+```
+
+```{r}
+unique(dinosaurios$Country)
+```
+
+### Pregunta 1: ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados?
+
+Se agrupan de acuerdo a su categoría de dieta y se contabiliza el número de dinosaurios dentro de esa categoría
+
+```{r}
+dino_dieta <-dinosaur_limpio %>% 
+  dplyr::group_by(Diet) %>% 
+summarise(
+  num_dino=n(),
+  .groups = "drop"
+)
+```
+
+A continuación, se muestra gráficamente la relación entre número de registros y dietas.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+dino_dieta %>%
+  arrange(desc(num_dino)) %>%
+  mutate(Diet = factor(Diet, levels = Diet)) %>%
+  ggplot(aes(x = Diet, 
+             y = num_dino,
+            fill=num_dino)) +
+  geom_col() +
+  scale_fill_gradient(
+    low = "skyblue",
+    high = "blue")+
+  labs(
+    title = "Número de dinosaurios por dieta",
+    x = "Tipo de dieta",
+    y = "Número de dinosaurios registrados",
+    fill="No.dinosaurios"
+  ) +
+  theme_minimal() 
+
+```
+
+Existen distintas categorías con pocos ejemplares, por lo que es conveniente centrar los datos a las columnas más aglomeradas. En el siguiente gráfico, se deduce que, hasta ahora, la dieta predominante en los dinosaurios descubiertos es herbívora.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+dino_dieta %>%
+  arrange(desc(num_dino)) %>%
+  slice(1:4) %>% 
+mutate(Diet = factor(Diet, levels = Diet)) %>%
+  ggplot(aes(x = Diet, y = num_dino, fill = num_dino)) +
+  geom_col() +
+  scale_fill_gradient(
+    low = "skyblue",
+    high = "blue"
+  ) +
+  labs(
+    title = "Las 4 dietas con mayor número de dinosaurios",
+    x = "Tipo de dieta",
+    y = "Número de dinosaurios registrados",
+    fill = "Número de\nregistros"
+  ) +
+  theme_minimal()
+```
+
+### Pregunta 2. ¿En qué país se han encontrado más fósiles de dinosaurios?
+
+Se agrupa el número de ejemplares por países en el siguiente código:
+
+```{r}
+dino_dieta <-dinosaur_limpio %>% 
+  dplyr::group_by(Diet) %>% 
+  summarise(
+    num_dino=n(),
+    .groups = "drop"
+  )
+```
+
+El gráfico muestra que la mayoría de los países cuentan con menos de 100 registros. El sitio con mayores ejemplares es Norte América, seguido por China y Sur América.
+
+```{r}
+library(ggplot2)
+
+dino_paises %>%
+  arrange(desc(num_paises)) %>%
+  mutate(Country = factor(Country, levels = rev(Country))) %>%
+  ggplot(aes(x = num_paises, y = Country)) +
+  geom_point(size = 3, color = "steelblue") +
+  labs(
+    title = "Número de fósiles registrados por país",
+    x = "Número de dinosaurios",
+    y = "País"
+  ) +
+  theme_minimal()
+
 ```
