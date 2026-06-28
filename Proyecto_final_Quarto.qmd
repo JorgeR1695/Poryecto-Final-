@@ -229,3 +229,61 @@ dino_paises %>%
   theme_minimal()
 
 ```
+
+### Pregunta 3. ¿Existe alguna relación entre la dieta y el periodo?
+
+No existe la suficiente evidencia para asumir que existe una relación entre la dieta y el periodo
+
+```{r}
+library(dplyr)
+library(forcats)
+library(stringr)
+
+dinosaur_limpio <- dinosaur_limpio %>%
+  mutate(
+    Period = str_trim(Period),
+    Period = fct_collapse(
+      Period,
+      "Cretaceous" = c("Cretaceous",
+                       "Early Cretaceous",
+                       "Late Cretaceous",
+                       "Early-Late Cretaceous"),
+      "Jurassic" = c("Jurassic",
+                     "Middle Jurassic",
+                     "Early Jurassic"),
+      "Triassic" = c("Triassic",
+                     "Late Triassic"),
+      "Indeterminated" = c("Jurassic/Cretaceous",
+                           "Triassic or Jurassic",
+                           "Triassic/Jurassic"),
+      "unknown" = "unknown"
+    )
+  )
+
+```
+
+```{r}
+tabla_chi <-  table(dinosaur_limpio$Period, dinosaur_limpio$Diet)
+resultado <- chisq.test(tabla_chi)
+
+if (resultado$p.value < 0.05) {
+  cat("Se rechaza H₀. Existe evidencia estadísticamente significativa de una relación entre el período geológico y la dieta de los dinosaurios (p =", 
+      round(resultado$p.value, 4), ").")
+} else {
+  cat("No se rechaza H₀. No existe evidencia estadísticamente significativa de una relación entre el período geológico y la dieta de los dinosaurios (p =", 
+      round(resultado$p.value, 4), ").")
+}
+```
+
+```{r}
+ggplot(dinosaur_limpio,
+       aes(x = Period, fill = Diet)) +
+  geom_bar(position = "fill") +
+  labs(
+    title = "Proporción de dietas por período geológico",
+    x = "Período geológico",
+    y = "Proporción",
+    fill = "Dieta"
+  ) +
+  theme_minimal()
+```
