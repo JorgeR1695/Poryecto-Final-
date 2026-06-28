@@ -69,7 +69,7 @@ La preguntas de investigación planteadas de acuerdo con el dataset son las sigu
 
 - ¿Existe alguna relación entre la dieta y el periodo?
 
-- ¿Existe alguna relación entre la dieta y los taxones registrados?
+- ¿Existe alguna relación entre la dieta y la región geográfica?
 
 - ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
@@ -90,6 +90,7 @@ names(dinosaur)
 ```
 
 ```{r}
+library(dplyr)
 glimpse(dinosaur)
 ```
 
@@ -108,7 +109,7 @@ dinosaurs_limpio <- dinosaur %>%
   tidyr::drop_na()
 ```
 
-## 3.3.1 Correctos de datos erróneos
+## 3.3.1 Correctos de datos
 
 ```{r}
 dinosaur_limpio <- dinosaur %>%
@@ -118,10 +119,11 @@ dinosaur_limpio <- dinosaur %>%
   mutate(Diet = recode(Diet, "omnivore" = "Omnivorous")) %>%
   mutate(Diet = recode(Diet, "(carnivore)" = "Carnivore")) %>%
   mutate(Diet = recode(Diet, "carnivore" = "Carnivore")) %>%
-  mutate(Diet = recode(Diet, "carnivore?" = "Carnivore?")) %>%
+  mutate(Diet = recode(Diet, "carnivore?" = "Carnivore")) %>%
   mutate(Diet = recode(Diet, "(unknown)" = "unknown")) %>%
   mutate(Diet = recode(Diet, "?" = "unknown")) %>%
-  mutate(Period = recode(Period, "Cretaceous       " = "Cretaceous"))
+  mutate(Period = recode(Period, "Cretaceous       " = "Cretaceous"))%>%
+  mutate(Period = recode(Period, "(unknown)" = "unknown"))
 ```
 
 ```{r}
@@ -138,7 +140,7 @@ dim(dinosaur)
 dim(dinosaurs_limpio)
 ```
 
-Las filas y columnas no fueron modificadas, sin embargo si se modificaron las varibles nominales de las categorías "Diet", "Country" y "Period".
+Las filas y columnas no fueron modificadas, sin embargo si se modificaron las varibles nominales de las categorías "Diet", "Country" y "Period", eliminando los datos cuyos valores no pertenecían a la categoría.
 
 ```{r}
 unique(dinosaur$Diet)
@@ -146,4 +148,215 @@ unique(dinosaur$Diet)
 
 ```{r}
 unique(dinosaur_limpio$Diet)
+```
+
+```{r}
+unique(dinosaur_limpio$Period)
+```
+
+```{r}
+unique(dinosaur_limpio$Country)
+```
+
+## 4. ¿Existe alguna relación entre la dieta y la región continental de los registros?
+
+Primero se agruparon los datos de sitio de colecta (Country) de acuerdo a su región continental
+
+```{r}
+library(dplyr)
+library(forcats)
+library(stringr)
+
+dinosaur_limpio <- dinosaur_limpio %>%
+  mutate(
+    Country = str_trim(Country),
+    Country = fct_collapse(
+      Country,
+      "America" = c("North America",
+                    "South America"),
+      "Europe" = c("England",
+                   "Spain",
+                   "France",
+                   "Hungary",
+                   "Portugal",
+                   "Germany",
+                   "Romania",
+                   "Spain, Portugal, England",
+                   "Netherlands",
+                   "Czech Republic",
+                   "England, France, Switzerland, Morocco",
+                   "Belgium",
+                   "England, France, Spain, Portugal",
+                   "Denmark",
+                   "Croatia",
+                   "England, France",
+                   "England and France",
+                   "Belgium, England, Germany",
+                   "England, France, Austria, Romania, Belgium",
+                   "Austria",
+                   "Netherlands, Belgium",
+                   "France, Czech Republic, Romania, Spain",
+                   "Austria, Romania, France, Hungary",
+                   "Italy",
+                   "Austria, France, Romania, Hungary",
+                   "Portugal, Spain",
+                   "Spain, Portugal",
+                   "Poland"),
+      "Africa" = c("South Africa",
+                   "Egypt, Niger",
+                   "Morocco",
+                   "South Africa, Lesotho, Zimbabwe",
+                   "Niger",
+                   "Angola",
+                   "Madagascar",
+                   "Tanzania",
+                   "Egypt,Niger, Morocco, Algeria",
+                   "Egypt, Niger, Algeria, Morocco",
+                   "Algeria",
+                   "Morocco, Algeria, Egypt",
+                   "South Africa, Zimbabwe, Lesotho",
+                   "Lesotho",
+                   "Egypt",
+                   "Malawi",
+                   "Tunisia",
+                   "Zimbabwe"),
+      "Asia" = c("China",
+                 "Mongolia",
+                 "Japan",
+                 "India",
+                 "Kazakhstan",
+                 "Russia",
+                 "Pakistan",
+                 "Uzbekistan",
+                 "South Korea",
+                 "Kyrgyzstan",
+                 "Laos",
+                 "Thailand",
+                 "Korea"),
+      "Antarctica" = c("Antarctica"),
+      "Australia" = c("Australia"),
+      "unknown" = "unknown"
+    )
+  )
+```
+
+```{r}
+unique(dinosaur_limpio$Country)
+```
+
+Posteriormente se elaboró una tabal de contingencias para observar la relación entre dos variables categóricas (Country y Diet), registrando las interaccipones que presenta cada una de estas variables con las de la otra categoría. Posteriormente se aplicó la prueba de *Chi cuadrada* Para ver si existe dependencia o relación entre estas variables.
+
+```{r}
+datos <- dinosaur_limpio[, c("Diet", "Country")]
+
+tabla <- table(datos$Diet, datos$Country)
+
+print(tabla)
+
+
+resultado_chi <- chisq.test(tabla)
+
+
+print(resultado_chi)
+
+
+                         
+```
+
+```{r}
+tabla <- matrix(
+  c(24,  2,  4, 64, 110, 129,  17,
+    0,   0,  0,  0,   0,   1,   0,
+    0,   0,  0,  0,   4,   0,   0,
+    53,  4, 17,113, 224, 278,  32,
+    0,   0,  0,  2,   7,   1,   0,
+    0,   0,  0,  0,   0,   1,   0,
+    4,   0,  0,  1,  36,  12,   3,
+    1,   0,  2,  1,   6,   1,   0),
+  nrow = 8, byrow = TRUE
+)
+
+rownames(tabla) <- c("Carnivore", "carnivore/insectivore", "carnivore/omnivore",
+                     "Herbivore", "herbivore/omnivore", "insectivore",
+                     "Omnivorous", "unknown")
+colnames(tabla) <- c("Africa", "Antarctica", "Australia", "Europe",
+                     "Asia", "America", "unknown")
+
+
+tabla_df <- as.data.frame(as.table(tabla))
+colnames(tabla_df) <- c("Dieta", "Continente", "Frecuencia")
+
+
+library(ggplot2)
+
+
+ggplot(tabla_df, aes(x = Continente, y = Frecuencia, fill = Dieta)) +
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(y = "Porcentaje", 
+       title = "Distribución de dieta por continente") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## 5. ¿Cómo se distribuyen los taxones de acuerdo con la escala geológica?
+
+Primero se recatalogaron las edades de los registros agrupando las "epocas" en su respectivo periodo (Ej. Triásico, Jurasico y Cretacico), separando los registros cuya edad es desconocida o es indeterminada.
+
+```{r}
+class(dinosaur_limpio$Country)
+```
+
+```{r}
+library(dplyr)
+library(forcats)
+library(stringr)
+
+dinosaur_limpio <- dinosaur_limpio %>%
+  mutate(
+    Period = str_trim(Period),
+    Period = fct_collapse(
+      Period,
+      "Cretaceous" = c("Cretaceous",
+                       "Early Cretaceous",
+                       "Late Cretaceous",
+                       "Early-Late Cretaceous"),
+      "Jurassic" = c("Jurassic",
+                     "Middle Jurassic",
+                     "Early Jurassic"),
+      "Triassic" = c("Triassic",
+                     "Late Triassic"),
+      "Indeterminated" = c("Jurassic/Cretaceous",
+                           "Triassic or Jurassic",
+                           "Triassic/Jurassic"),
+      "unknown" = "unknown"
+    )
+  )
+```
+
+Posteriormente se elaboró una tabla de frecuencias para observar la cómo se distribuían los registros de dinosaurios a travéz de los distintos periodos de tiempo.
+
+```{r}
+tabla_frecuencias <- dinosaur_limpio %>%
+  count(Period, name = "Frecuencia_Absoluta") %>%
+  mutate(
+    Frecuencia_Relativa = Frecuencia_Absoluta / sum(Frecuencia_Absoluta),
+    Porcentaje = Frecuencia_Relativa * 100
+  )
+
+print(tabla_frecuencias)
+```
+
+```{r}
+datos <- as.data.frame(tabla_frecuencias)
+colnames(datos) <- c("Edad", "Frecuencia")
+
+library(ggplot2)
+
+ggplot(tabla_frecuencias, aes(x = Period, y = Frecuencia_Absoluta)) +
+  geom_col(fill = "steelblue", color = "black") +
+  labs(title = "Distribución de taxones por Edad Geocronológica", 
+       x = "Edades", 
+       y = "Frecuencia") +
+  theme_minimal()
 ```
