@@ -299,6 +299,8 @@ ggplot(tabla_df, aes(x = Continente, y = Frecuencia, fill = Dieta)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+###Interpretación
+
 ## 5. ¿Cómo se distribuyen los taxones de acuerdo con la escala geológica?
 
 Primero se recatalogaron las edades de los registros agrupando las "epocas" en su respectivo periodo (Ej. Triásico, Jurasico y Cretacico), separando los registros cuya edad es desconocida o es indeterminada.
