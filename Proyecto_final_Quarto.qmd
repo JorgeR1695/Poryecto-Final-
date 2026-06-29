@@ -6,6 +6,8 @@ editor: visual
 
 # **Proyecto Final del curso intersemestral "Code & Data Bootcamp: Git, Bash y R"**
 
+Fecha: 30 de junio 2026
+
 ### Autores:
 
 1.  Brenda Avelina López Muñiz
@@ -28,25 +30,29 @@ Figura 1. Reconstrucción de fauna del Cretácico Tardío.
 
 ### 2.1 Documentación del proceso de descarga
 
-Pendiente
+La base de datos fue descargada directamente de la página y cargada en el código como documento. Sin embargo, es posible realizar la descarga a través del siguiente código desde la terminal:
+
+```{r}
+# kaggle datasets download -d kumazaki98/dinosaur-list --unzip -p data
+```
 
 ### 2.2 Información contenida en la base datos
 
 El dataset cuenta con cuatro columnas corresponientes a las categorías:
 
-- **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
+-   **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
 
-- **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
+-   **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
 
-- **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
+-   **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
 
-- **País (Country)**: Señala el país de colecta y registro del ejemplar
+-   **País (Country)**: Señala el país de colecta y registro del ejemplar
 
-  ```{r}
-  dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
-  colnames(dinosaurios)
-  class(dinosaurios)
-  ```
+    ```{r}
+    dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
+    colnames(dinosaurios)
+    class(dinosaurios)
+    ```
 
 ### 2.3 Dimensiones del DataFrame
 
@@ -63,15 +69,15 @@ nrow(dinosaurios)
 
 La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:
 
-- ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
+-   ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
 
-- ¿En qué país se han encontrado más fósiles de dinosaurios?
+-   ¿En qué país se han encontrado más fósiles de dinosaurios?
 
-- ¿Existe alguna relación entre la dieta y el periodo?
+-   ¿Existe alguna relación entre la dieta y el periodo?
 
-- ¿Existe alguna relación entre la dieta y la región geográfica?
+-   ¿Existe alguna relación entre la dieta y la región geográfica?
 
-- ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
+-   ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
 ## 3.2 Limpieza básica de datos
 
@@ -260,7 +266,7 @@ dino_paises %>%
 
 ### Pregunta 3. ¿Existe alguna relación entre la dieta y el periodo?
 
-No existe la suficiente evidencia para asumir que existe una relación entre la dieta y el periodo 
+No existe la suficiente evidencia para asumir que existe una relación entre la dieta y el periodo
 
 ```{r}
 library(dplyr)
@@ -315,7 +321,7 @@ ggplot(dinosaur_limpio,
   theme_minimal()
 ```
 
-## Pregunta 4: ¿Existe alguna relación entre la dieta y la región continental de los registros?
+### Pregunta 4: ¿Existe alguna relación entre la dieta y la región continental de los registros?
 
 Los registros de dinosaurios están distribuidos a travéz de varias regiones del mundo, incluyendo 63 paises, debido a esto, se agruparon los datos de sitio de colecta (Country) de acuerdo a su región continental para tener una mejor visivilidad de los datos.
 
@@ -397,7 +403,7 @@ dinosaur_limpio <- dinosaur %>%
   )
 ```
 
-La agrupación de datos géneró 7 niveles de categoría, en los que se incluyen 6 regiones continentales y "deconocido" (Unknown)
+La agrupación de datos generó 7 niveles de categorías, en los que se incluyen 6 regiones continentales y "deconocido" (Unknown).
 
 ```{r}
 unique(dinosaur_limpio$Country)
@@ -457,9 +463,9 @@ ggplot(tabla_df, aes(x = Continente, y = Frecuencia, fill = Dieta)) +
 
 El valor de P de la prueba de *Chi cuadrada* es de 0.000000001132, por lo que existe la suficiente evidencia para asumir que existe una relación entre la dieta y la región continental.
 
-## Pregunta 5: ¿Cómo se distribuyen los taxones de acuerdo con la escala geológica?
+### Pregunta 5: ¿Cómo se distribuyen los taxones de acuerdo con la escala geológica?
 
-Primero se recatalogaron las edades de los registros agrupando las "epocas" en su respectivo periodo (Ej. Triásico, Jurasico y Cretacico), separando los registros cuya edad es desconocida o es indeterminada.
+Primero se recatalogaron las edades de los registros agrupando las "épocas" con su respectivo periodo (Ej. Triásico, Jurasico y Cretacico), separando los registros cuya edad es desconocida o es indeterminada.
 
 ```{r}
 class(dinosaur_limpio$Country)
@@ -522,4 +528,5 @@ ggplot(tabla_frecuencias, aes(x = Period, y = Frecuencia_Absoluta)) +
        y = "Frecuencia") +
   theme_minimal()
 ```
+
 El mayor número de registros de dinosaurios lo posee el Cretácico, seguido por el Jurásico y Triásico respectivamente. Siendo las edades más recientes con las que cuentan con el mayor número de registros.
