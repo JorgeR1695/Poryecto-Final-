@@ -203,18 +203,19 @@ mutate(Diet = factor(Diet, levels = Diet)) %>%
 Se agrupa el número de ejemplares por países en el siguiente código:
 
 ```{r}
-dino_dieta <-dinosaur_limpio %>% 
-  dplyr::group_by(Diet) %>% 
-  summarise(
-    num_dino=n(),
-    .groups = "drop"
-  )
+dino_paises <-dinosaur_limpio %>%
+  dplyr::group_by(Country) %>% 
+  summarise( num_paises=n(), 
+             .groups = "drop" )
 ```
 
 El gráfico muestra que la mayoría de los países cuentan con menos de 100 registros. El sitio con mayores ejemplares es Norte América, seguido por China y Sur América.
 
 ```{r}
 library(ggplot2)
+
+#| fig-width: 8
+#| fig-height: 18
 
 dino_paises %>%
   arrange(desc(num_paises)) %>%
@@ -226,7 +227,10 @@ dino_paises %>%
     x = "Número de dinosaurios",
     y = "País"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.text.y = element_text(size = 6)
+  )
 
 ```
 
