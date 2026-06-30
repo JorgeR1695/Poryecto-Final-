@@ -40,19 +40,23 @@ La base de datos fue descargada directamente de la página y cargada en el códi
 
 El dataset cuenta con cuatro columnas corresponientes a las categorías:
 
--   **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
+- **Nombre** **(Name)**: Refiere a su clasificación taxonómica a nivel de género
 
--   **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
+- **Periodo (Period)**: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro
 
--   **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
+- **Tipo de Dieta (Diet)**: Descrive el tipo de dienta inferido para ese taxón
 
--   **País (Country)**: Señala el país de colecta y registro del ejemplar
+- **País (Country)**: Señala el país de colecta y registro del ejemplar
 
-    ```{r}
-    dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
-    colnames(dinosaurios)
-    class(dinosaurios)
-    ```
+```{r}
+dinosaur <- read.csv("data/dinosaur.csv")
+```
+
+```{r}
+dinosaurios <- read.csv("data/dinosaur.csv",header=TRUE)
+  colnames(dinosaurios)
+  class(dinosaurios)
+```
 
 ### 2.3 Dimensiones del DataFrame
 
@@ -69,15 +73,15 @@ nrow(dinosaurios)
 
 La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:
 
--   ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
+- ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -
 
--   ¿En qué país se han encontrado más fósiles de dinosaurios?
+- ¿En qué país se han encontrado más fósiles de dinosaurios?
 
--   ¿Existe alguna relación entre la dieta y el periodo?
+- ¿Existe alguna relación entre la dieta y el periodo?
 
--   ¿Existe alguna relación entre la dieta y la región geográfica?
+- ¿Existe alguna relación entre la dieta y la región geográfica?
 
--   ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
+- ¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?
 
 ## 3.2 Limpieza básica de datos
 

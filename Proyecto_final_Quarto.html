@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Proyecto_Final_Quarto</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Proyecto_final_Quarto_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Proyecto_final_Quarto_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Proyecto_final_Quarto_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Proyecto_final_Quarto_files/libs/quarto-html/popper.min.js"></script>
+<script src="Proyecto_final_Quarto_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Proyecto_final_Quarto_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Proyecto_final_Quarto_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Proyecto_final_Quarto_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Proyecto_final_Quarto_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Proyecto_final_Quarto_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Proyecto_final_Quarto_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Proyecto_Final_Quarto</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="proyecto-final-del-curso-intersemestral-code-data-bootcamp-git-bash-y-r" class="level1">
+<h1><strong>Proyecto Final del curso intersemestral “Code &amp; Data Bootcamp: Git, Bash y R”</strong></h1>
+<p>Fecha: 30 de junio 2026</p>
+<section id="autores" class="level3">
+<h3 class="anchored" data-anchor-id="autores">Autores:</h3>
+<ol type="1">
+<li><p>Brenda Avelina López Muñiz</p></li>
+<li><p>Jorge Alberto Rivera Aquino</p></li>
+</ol>
+</section>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>Este proyecto analiza un data set con información sobre diferentes grupos de dinosaurios (<em>Dinosauria</em>), planteando las preguntas de investigación más relevantes.</p>
+<p>La base de datos contiene información sobre los dinosaurios descubiertos hasta ahora. Los datos se catalogan como discretos de caracter nominal. El data set puede ser consultado en la siguiente liga <a href="https://www.kaggle.com/datasets/kumazaki98/dinosaur-list/data">Base de datos de Dinosaurio</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.cmosc.org/wp-content/uploads/2025/05/Dinosaurs_of_California_Dino_Facts_for_Kids.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
+</figure>
+</div>
+<div style="text-align: center">
+<p>Figura 1. Reconstrucción de fauna del Cretácico Tardío.</p>
+</div>
+</section>
+<section id="exploración-del-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="exploración-del-dataset">2. Exploración del dataset</h2>
+<section id="documentación-del-proceso-de-descarga" class="level3">
+<h3 class="anchored" data-anchor-id="documentación-del-proceso-de-descarga">2.1 Documentación del proceso de descarga</h3>
+<p>La base de datos fue descargada directamente de la página y cargada en el código como documento. Sin embargo, es posible realizar la descarga a través del siguiente código desde la terminal:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kaggle datasets download -d kumazaki98/dinosaur-list --unzip -p data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="información-contenida-en-la-base-datos" class="level3">
+<h3 class="anchored" data-anchor-id="información-contenida-en-la-base-datos">2.2 Información contenida en la base datos</h3>
+<p>El dataset cuenta con cuatro columnas corresponientes a las categorías:</p>
+<ul>
+<li><p><strong>Nombre</strong> <strong>(Name)</strong>: Refiere a su clasificación taxonómica a nivel de género</p></li>
+<li><p><strong>Periodo (Period)</strong>: Rrefiere al periodo geológico o escala temporal a la que es asignado el registro</p></li>
+<li><p><strong>Tipo de Dieta (Diet)</strong>: Descrive el tipo de dienta inferido para ese taxón</p></li>
+<li><p><strong>País (Country)</strong>: Señala el país de colecta y registro del ejemplar</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dinosaur <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/dinosaur.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dinosaurios <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/dinosaur.csv"</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Name"    "Period"  "Diet"    "Country"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+</section>
+<section id="dimensiones-del-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="dimensiones-del-dataframe">2.3 Dimensiones del DataFrame</h3>
+<p>El dataframe cuenta con un total de 1,154 filas y 4 columnas</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1154</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="análisis-y-resultados" class="level1">
+<h1>3. ANÁLISIS Y RESULTADOS</h1>
+<section id="preguntas-de-investigación" class="level2">
+<h2 class="anchored" data-anchor-id="preguntas-de-investigación">3.1 Preguntas de investigación</h2>
+<p>La preguntas de investigación planteadas de acuerdo con el dataset son las siguientes:</p>
+<ul>
+<li><p>¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados? -</p></li>
+<li><p>¿En qué país se han encontrado más fósiles de dinosaurios?</p></li>
+<li><p>¿Existe alguna relación entre la dieta y el periodo?</p></li>
+<li><p>¿Existe alguna relación entre la dieta y la región geográfica?</p></li>
+<li><p>¿Cómo se distribuyen los taxones de aceurdo con el periodo geológico?</p></li>
+</ul>
+</section>
+<section id="limpieza-básica-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="limpieza-básica-de-datos">3.2 Limpieza básica de datos</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Name            Period      Diet       Country
+1      Aardonyx          Jurassic herbivore  South Africa
+2   Abelisaurus Cretaceous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; carnivore South America
+3 Abrictosaurus          Jurassic herbivore  South Africa
+4    Abrosaurus          Jurassic herbivore         China
+5   Abydosaurus        Cretaceous herbivore North America
+6 Acanthopholis        Cretaceous herbivore       England</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1154    4</code></pre>
+</div>
+</div>
+<p>4 Columnas y 1154 filas</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Name"    "Period"  "Diet"    "Country"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Adjuntando el paquete: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,154
+Columns: 4
+$ Name    &lt;chr&gt; "Aardonyx", "Abelisaurus", "Abrictosaurus", "Abrosaurus", "Aby…
+$ Period  &lt;chr&gt; "Jurassic", "Cretaceous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "Jurassic", "Jurassic", "Cret…
+$ Diet    &lt;chr&gt; "herbivore", "carnivore", "herbivore", "herbivore", "herbivore…
+$ Country &lt;chr&gt; "South Africa", "South America", "South Africa", "China", "Nor…</code></pre>
+</div>
+</div>
+</section>
+<section id="limpieza-básica-de-datos-1" class="level2">
+<h2 class="anchored" data-anchor-id="limpieza-básica-de-datos-1">3.3 Limpieza básica de datos</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(dinosaurios))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Name  Period    Diet Country 
+      0       0       0       0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dinosaurios<span class="sc">$</span>Name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dinosaurios<span class="sc">$</span>Period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dinosaurios<span class="sc">$</span>Diet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dinosaurios<span class="sc">$</span>Country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>dinosaurs_limpio <span class="ot">&lt;-</span> dinosaurios <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="corrección-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="corrección-de-datos">3.2.1 Corrección de datos</h2>
+<p>La base de datos no es homogénea. Entre sus categorías, se combina nomenclatura como “herbivore” y “(herbivore)”. Esto produce un análisis erróneo, por lo que en los códigos siguientes se reemplazan las etiquetas con escritura incorrecta para el caso de “Dieta”.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dinosaur_limpio <span class="ot">&lt;-</span> dinosaurios <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"herbivore"</span> <span class="ot">=</span> <span class="st">"Herbivore"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"(herbivore)"</span> <span class="ot">=</span> <span class="st">"Herbivore"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"omnivorous"</span> <span class="ot">=</span> <span class="st">"Omnivorous"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"omnivore"</span> <span class="ot">=</span> <span class="st">"Omnivorous"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"(carnivore)"</span> <span class="ot">=</span> <span class="st">"Carnivore"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"carnivore"</span> <span class="ot">=</span> <span class="st">"Carnivore"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"carnivore?"</span> <span class="ot">=</span> <span class="st">"Carnivore"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"(unknown)"</span> <span class="ot">=</span> <span class="st">"unknown"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">recode</span>(Diet, <span class="st">"?"</span> <span class="ot">=</span> <span class="st">"unknown"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Period =</span> <span class="fu">recode</span>(Period, <span class="st">"Cretaceous       "</span> <span class="ot">=</span> <span class="st">"Cretaceous"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Period =</span> <span class="fu">recode</span>(Period, <span class="st">"(unknown)"</span> <span class="ot">=</span> <span class="st">"unknown"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La columna “Country” tiene, en algunos casos, más de un país y en otros, comentarios u observaciones que no corresponden con la categoría. Para ello, se observa que los comentarios terminan en <u>punto (.)</u> y los que contienen diferentes países <u>et (&amp;)</u>. Tomando ventaja de este patrón, se realiza el siguiente código:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dinosaurios<span class="sc">$</span>Country[</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.$"</span>, dinosaur_limpio<span class="sc">$</span>Country) <span class="sc">|</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"&amp;"</span>, dinosaur_limpio<span class="sc">$</span>Country) <span class="sc">|</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">","</span>,dinosaur_limpio<span class="sc">$</span>Country)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  ] <span class="ot">&lt;-</span> <span class="st">"unknown"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dinosaurios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1154    4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dinosaurs_limpio)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1154    4</code></pre>
+</div>
+</div>
+<p>Las filas y columnas no fueron modificadas, sin embargo si se modificaron las varibles nominales de las categorías “Diet”, “Country” y “Period”, eliminando los datos cuyos valores no pertenecían a la categoría.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dinosaurios<span class="sc">$</span>Diet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "herbivore"             "carnivore"             "carnivore/insectivore"
+ [4] "(herbivore)"           "omnivore"              "herbivore/omnivore"   
+ [7] "(unknown)"             "(carnivore)"           "unknown"              
+[10] "Carnivore"             "omnivorous"            "?"                    
+[13] "Herbivore"             "carnivore/omnivore"    "carnivore?"           
+[16] "insectivore"          </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dinosaur_limpio<span class="sc">$</span>Diet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Herbivore"             "Carnivore"             "carnivore/insectivore"
+[4] "Omnivorous"            "herbivore/omnivore"    "unknown"              
+[7] "carnivore/omnivore"    "insectivore"          </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dinosaur_limpio<span class="sc">$</span>Period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Jurassic"              "Cretaceous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"     "Cretaceous"           
+ [4] "Triassic"              "Jurassic/Cretaceous"   "Late Triassic"        
+ [7] "Late Cretaceous"       "Triassic or Jurassic"  "Middle Jurassic"      
+[10] "Early Cretaceous"      "Early-Late Cretaceous" "Early Jurassic"       
+[13] "Triassic/Jurassic"     "unknown"              </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dinosaur_limpio<span class="sc">$</span>Country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "South Africa"                                                                        
+  [2] "South America"                                                                       
+  [3] "China"                                                                               
+  [4] "North America"                                                                       
+  [5] "England"                                                                             
+  [6] "Mongolia"                                                                            
+  [7] "Morocco"                                                                             
+  [8] "Spain"                                                                               
+  [9] "Egypt, Niger"                                                                        
+ [10] "France"                                                                              
+ [11] "South Africa, Lesotho, Zimbabwe"                                                     
+ [12] "Niger"                                                                               
+ [13] "Hungary"                                                                             
+ [14] "Japan"                                                                               
+ [15] "Mongolia (&amp; China?)"                                                                 
+ [16] "Tanzania, USA, &amp; Portugal"                                                           
+ [17] "Portugal, USA, &amp; Tanzania"                                                           
+ [18] "Portugal"                                                                            
+ [19] "India"                                                                               
+ [20] "Russia &amp; China"                                                                      
+ [21] "Angola"                                                                              
+ [22] "Antarctica"                                                                          
+ [23] "Kazakhstan"                                                                          
+ [24] "Madagascar"                                                                          
+ [25] "Germany"                                                                             
+ [26] "Russia"                                                                              
+ [27] "Mongolia &amp; China"                                                                    
+ [28] "China &amp; Mongolia"                                                                    
+ [29] "Australia"                                                                           
+ [30] "China &amp; South Korea"                                                                 
+ [31] "Tanzania"                                                                            
+ [32] "Egypt,Niger, Morocco, Algeria"                                                       
+ [33] "Romania"                                                                             
+ [34] "Pakistan"                                                                            
+ [35] "Spain, Portugal, England"                                                            
+ [36] "Netherlands"                                                                         
+ [37] "Uzbekistan"                                                                          
+ [38] "Czech Republic"                                                                      
+ [39] "Egypt, Niger, Algeria, Morocco"                                                      
+ [40] "Portugal &amp; USA"                                                                      
+ [41] "England, France, Switzerland, Morocco"                                               
+ [42] "China, Russia, &amp; Mongolia(?)"                                                        
+ [43] "Algeria"                                                                             
+ [44] "USA, South Africa, &amp; Zimbabwe"                                                       
+ [45] "Germany &amp; France"                                                                    
+ [46] "Belgium"                                                                             
+ [47] "England, France, Spain, Portugal"                                                    
+ [48] "South Korea"                                                                         
+ [49] "Morocco, Algeria, Egypt"                                                             
+ [50] "Denmark"                                                                             
+ [51] "Portugal &amp; Uzbekistan"                                                               
+ [52] "South Africa, Zimbabwe, Lesotho"                                                     
+ [53] "Lesotho"                                                                             
+ [54] "Kyrgyzstan"                                                                          
+ [55] "Mongolia &amp; Uzbekistan"                                                               
+ [56] "South Africa &amp; China (?)"                                                            
+ [57] "Croatia"                                                                             
+ [58] "Laos"                                                                                
+ [59] "England, Belgium, USA, France, Mongolia &amp; Spain"                                     
+ [60] "Egypt"                                                                               
+ [61] "Thailand"                                                                            
+ [62] "Malawi"                                                                              
+ [63] "Korea"                                                                               
+ [64] "England, France"                                                                     
+ [65] "England and France"                                                                  
+ [66] "China, Mongolia &amp; Thailand"                                                          
+ [67] "China &amp; Laos"                                                                        
+ [68] "Belgium, England, Germany"                                                           
+ [69] "England, France, Austria, Romania, Belgium"                                          
+ [70] "Austria"                                                                             
+ [71] "Netherlands, Belgium"                                                                
+ [72] "England &amp; Portugal"                                                                  
+ [73] "Germany, France, Switzerland, Norway, &amp; Greenland"                                   
+ [74] "China, Mongolia, Thailand (?), &amp; Russia"                                             
+ [75] "Mongolia &amp; Canada"                                                                   
+ [76] "Mongolia (&amp; China&nbsp;?)"                                                                
+ [77] "Morocco, Niger &amp; Tunisia"                                                            
+ [78] "France, Czech Republic, Romania, Spain"                                              
+ [79] "Austria, Romania, France, Hungary"                                                   
+ [80] "Italy"                                                                               
+ [81] "Mongolia, USA, Canada &amp; China"                                                       
+ [82] "Egypt &amp; Morocco"                                                                     
+ [83] "Austria, France, Romania, Hungary"                                                   
+ [84] "Tunisia"                                                                             
+ [85] "Portugal, Spain"                                                                     
+ [86] "Spain, Portugal"                                                                     
+ [87] "Poland"                                                                              
+ [88] "Zimbabwe"                                                                            
+ [89] "Formerly referred to Phaedrolosaurus."                                               
+ [90] "A sauropod with an unusually long neck."                                             
+ [91] "A troodontid."                                                                       
+ [92] "A basal sauropodomorph."                                                             
+ [93] "It was once thought to walk on four legs. This is now unlikely."                     
+ [94] "A basal ceratopsian."                                                                
+ [95] "Probably a sauropod."                                                                
+ [96] "A large basal sauropodomorph."                                                       
+ [97] "The only anchiornithid to live in the Cretaceous."                                   
+ [98] "This name was a nomen nudum for eight years and was only formally described in 2018."
+ [99] "A very large sauropod."                                                              
+[100] "A mamenchisaurid sauropod."                                                          
+[101] "Probably a relative of Jeholosaurus."                                                
+[102] "A small oviraptorosaur."                                                             
+[103] "A hadrosauroid."                                                                     
+[104] "Possibly a titanosaur."                                                              </code></pre>
+</div>
+</div>
+<section id="pregunta-1-qué-dieta-es-la-predominante-en-la-muestra-total-de-los-dinosaurios-registrados" class="level3">
+<h3 class="anchored" data-anchor-id="pregunta-1-qué-dieta-es-la-predominante-en-la-muestra-total-de-los-dinosaurios-registrados">Pregunta 1: ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados?</h3>
+<p>Se agrupan de acuerdo a su categoría de dieta y se contabiliza el número de dinosaurios dentro de esa categoría</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dino_dieta <span class="ot">&lt;-</span>dinosaur_limpio <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Diet) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">num_dino=</span><span class="fu">n</span>(),</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A continuación, se muestra gráficamente la relación entre número de registros y dietas.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>dino_dieta <span class="sc">%&gt;%</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(num_dino)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">factor</span>(Diet, <span class="at">levels =</span> Diet)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Diet, </span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> num_dino,</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill=</span>num_dino)) <span class="sc">+</span></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Número de dinosaurios por dieta"</span>,</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tipo de dieta"</span>,</span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Número de dinosaurios registrados"</span>,</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill=</span><span class="st">"No.dinosaurios"</span></span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proyecto_final_Quarto_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Existen distintas categorías con pocos ejemplares, por lo que es conveniente centrar los datos a las columnas más aglomeradas. En el siguiente gráfico, se deduce que, hasta ahora, la dieta predominante en los dinosaurios descubiertos es herbívora.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>dino_dieta <span class="sc">%&gt;%</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(num_dino)) <span class="sc">%&gt;%</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Diet =</span> <span class="fu">factor</span>(Diet, <span class="at">levels =</span> Diet)) <span class="sc">%&gt;%</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Diet, <span class="at">y =</span> num_dino, <span class="at">fill =</span> num_dino)) <span class="sc">+</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">"blue"</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Las 4 dietas con mayor número de dinosaurios"</span>,</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tipo de dieta"</span>,</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Número de dinosaurios registrados"</span>,</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Número de</span><span class="sc">\n</span><span class="st">registros"</span></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proyecto_final_Quarto_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pregunta-2.-en-qué-país-se-han-encontrado-más-fósiles-de-dinosaurios" class="level3">
+<h3 class="anchored" data-anchor-id="pregunta-2.-en-qué-país-se-han-encontrado-más-fósiles-de-dinosaurios">Pregunta 2. ¿En qué país se han encontrado más fósiles de dinosaurios?</h3>
+<p>Se agrupa el número de ejemplares por países en el siguiente código:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>dino_paises <span class="ot">&lt;-</span>dinosaurios <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">group_by</span>(Country) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>( <span class="at">num_paises=</span><span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>El gráfico muestra que la mayoría de los países cuentan con menos de 100 registros. El sitio con mayores ejemplares es Norte América, seguido por China y Sur América.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 8</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 18</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>dino_paises <span class="sc">%&gt;%</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(num_paises)) <span class="sc">%&gt;%</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Country =</span> <span class="fu">factor</span>(Country, <span class="at">levels =</span> <span class="fu">rev</span>(Country))) <span class="sc">%&gt;%</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> num_paises, <span class="at">y =</span> Country)) <span class="sc">+</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Número de fósiles registrados por país"</span>,</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Número de dinosaurios"</span>,</span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"País"</span></span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>)</span>
+<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proyecto_final_Quarto_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pregunta-3.-existe-alguna-relación-entre-la-dieta-y-el-periodo" class="level3">
+<h3 class="anchored" data-anchor-id="pregunta-3.-existe-alguna-relación-entre-la-dieta-y-el-periodo">Pregunta 3. ¿Existe alguna relación entre la dieta y el periodo?</h3>
+<p>No existe la suficiente evidencia para asumir que existe una relación entre la dieta y el periodo</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>dinosaur_limpio <span class="ot">&lt;-</span> dinosaur_limpio <span class="sc">%&gt;%</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Period =</span> <span class="fu">str_trim</span>(Period),</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Period =</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>      Period,</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Cretaceous"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Cretaceous"</span>,</span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Early Cretaceous"</span>,</span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Late Cretaceous"</span>,</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Early-Late Cretaceous"</span>),</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Jurassic"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Jurassic"</span>,</span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Middle Jurassic"</span>,</span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Early Jurassic"</span>),</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Triassic"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Triassic"</span>,</span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Late Triassic"</span>),</span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Indeterminated"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Jurassic/Cretaceous"</span>,</span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Triassic or Jurassic"</span>,</span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Triassic/Jurassic"</span>),</span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">"unknown"</span> <span class="ot">=</span> <span class="st">"unknown"</span></span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>tabla_chi <span class="ot">&lt;-</span>  <span class="fu">table</span>(dinosaur_limpio<span class="sc">$</span>Period, dinosaur_limpio<span class="sc">$</span>Diet)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_chi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(tabla_chi): Chi-squared approximation may be incorrect</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (resultado<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Se rechaza H₀. Existe evidencia estadísticamente significativa de una relación entre el período geológico y la dieta de los dinosaurios (p ="</span>, </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">round</span>(resultado<span class="sc">$</span>p.value, <span class="dv">4</span>), <span class="st">")."</span>)</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No se rechaza H₀. No existe evidencia estadísticamente significativa de una relación entre el período geológico y la dieta de los dinosaurios (p ="</span>, </span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">round</span>(resultado<span class="sc">$</span>p.value, <span class="dv">4</span>), <span class="st">")."</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No se rechaza H₀. No existe evidencia estadísticamente significativa de una relación entre el período geológico y la dieta de los dinosaurios (p = 0.4987 ).</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dinosaur_limpio,</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Period, <span class="at">fill =</span> Diet)) <span class="sc">+</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Proporción de dietas por período geológico"</span>,</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Período geológico"</span>,</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Proporción"</span>,</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Dieta"</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proyecto_final_Quarto_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pregunta-4-existe-alguna-relación-entre-la-dieta-y-la-región-continental-de-los-registros" class="level3">
+<h3 class="anchored" data-anchor-id="pregunta-4-existe-alguna-relación-entre-la-dieta-y-la-región-continental-de-los-registros">Pregunta 4: ¿Existe alguna relación entre la dieta y la región continental de los registros?</h3>
+<p>Los registros de dinosaurios están distribuidos a travéz de varias regiones del mundo, incluyendo 63 paises, debido a esto, se agruparon los datos de sitio de colecta (Country) de acuerdo a su región continental para tener una mejor visivilidad de los datos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>dinosaur_limpio <span class="ot">&lt;-</span> dinosaur <span class="sc">%&gt;%</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country =</span> <span class="fu">str_trim</span>(Country),</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country =</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>      Country,</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"America"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"North America"</span>,</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"South America"</span>),</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Europe"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"England"</span>,</span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Spain"</span>,</span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"France"</span>,</span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Hungary"</span>,</span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Portugal"</span>,</span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Germany"</span>,</span>
+<span id="cb59-18"><a href="#cb59-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Romania"</span>,</span>
+<span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Spain, Portugal, England"</span>,</span>
+<span id="cb59-20"><a href="#cb59-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Netherlands"</span>,</span>
+<span id="cb59-21"><a href="#cb59-21" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Czech Republic"</span>,</span>
+<span id="cb59-22"><a href="#cb59-22" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"England, France, Switzerland, Morocco"</span>,</span>
+<span id="cb59-23"><a href="#cb59-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Belgium"</span>,</span>
+<span id="cb59-24"><a href="#cb59-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"England, France, Spain, Portugal"</span>,</span>
+<span id="cb59-25"><a href="#cb59-25" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Denmark"</span>,</span>
+<span id="cb59-26"><a href="#cb59-26" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Croatia"</span>,</span>
+<span id="cb59-27"><a href="#cb59-27" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"England, France"</span>,</span>
+<span id="cb59-28"><a href="#cb59-28" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"England and France"</span>,</span>
+<span id="cb59-29"><a href="#cb59-29" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Belgium, England, Germany"</span>,</span>
+<span id="cb59-30"><a href="#cb59-30" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"England, France, Austria, Romania, Belgium"</span>,</span>
+<span id="cb59-31"><a href="#cb59-31" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Austria"</span>,</span>
+<span id="cb59-32"><a href="#cb59-32" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Netherlands, Belgium"</span>,</span>
+<span id="cb59-33"><a href="#cb59-33" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"France, Czech Republic, Romania, Spain"</span>,</span>
+<span id="cb59-34"><a href="#cb59-34" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Austria, Romania, France, Hungary"</span>,</span>
+<span id="cb59-35"><a href="#cb59-35" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Italy"</span>,</span>
+<span id="cb59-36"><a href="#cb59-36" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Austria, France, Romania, Hungary"</span>,</span>
+<span id="cb59-37"><a href="#cb59-37" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Portugal, Spain"</span>,</span>
+<span id="cb59-38"><a href="#cb59-38" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Spain, Portugal"</span>,</span>
+<span id="cb59-39"><a href="#cb59-39" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Poland"</span>),</span>
+<span id="cb59-40"><a href="#cb59-40" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Africa"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"South Africa"</span>,</span>
+<span id="cb59-41"><a href="#cb59-41" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Egypt, Niger"</span>,</span>
+<span id="cb59-42"><a href="#cb59-42" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Morocco"</span>,</span>
+<span id="cb59-43"><a href="#cb59-43" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"South Africa, Lesotho, Zimbabwe"</span>,</span>
+<span id="cb59-44"><a href="#cb59-44" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Niger"</span>,</span>
+<span id="cb59-45"><a href="#cb59-45" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Angola"</span>,</span>
+<span id="cb59-46"><a href="#cb59-46" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Madagascar"</span>,</span>
+<span id="cb59-47"><a href="#cb59-47" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Tanzania"</span>,</span>
+<span id="cb59-48"><a href="#cb59-48" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Egypt,Niger, Morocco, Algeria"</span>,</span>
+<span id="cb59-49"><a href="#cb59-49" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Egypt, Niger, Algeria, Morocco"</span>,</span>
+<span id="cb59-50"><a href="#cb59-50" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Algeria"</span>,</span>
+<span id="cb59-51"><a href="#cb59-51" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Morocco, Algeria, Egypt"</span>,</span>
+<span id="cb59-52"><a href="#cb59-52" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"South Africa, Zimbabwe, Lesotho"</span>,</span>
+<span id="cb59-53"><a href="#cb59-53" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Lesotho"</span>,</span>
+<span id="cb59-54"><a href="#cb59-54" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Egypt"</span>,</span>
+<span id="cb59-55"><a href="#cb59-55" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Malawi"</span>,</span>
+<span id="cb59-56"><a href="#cb59-56" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Tunisia"</span>,</span>
+<span id="cb59-57"><a href="#cb59-57" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Zimbabwe"</span>),</span>
+<span id="cb59-58"><a href="#cb59-58" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Asia"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"China"</span>,</span>
+<span id="cb59-59"><a href="#cb59-59" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Mongolia"</span>,</span>
+<span id="cb59-60"><a href="#cb59-60" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Japan"</span>,</span>
+<span id="cb59-61"><a href="#cb59-61" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"India"</span>,</span>
+<span id="cb59-62"><a href="#cb59-62" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Kazakhstan"</span>,</span>
+<span id="cb59-63"><a href="#cb59-63" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Russia"</span>,</span>
+<span id="cb59-64"><a href="#cb59-64" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Pakistan"</span>,</span>
+<span id="cb59-65"><a href="#cb59-65" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Uzbekistan"</span>,</span>
+<span id="cb59-66"><a href="#cb59-66" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"South Korea"</span>,</span>
+<span id="cb59-67"><a href="#cb59-67" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Kyrgyzstan"</span>,</span>
+<span id="cb59-68"><a href="#cb59-68" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Laos"</span>,</span>
+<span id="cb59-69"><a href="#cb59-69" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Thailand"</span>,</span>
+<span id="cb59-70"><a href="#cb59-70" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Korea"</span>),</span>
+<span id="cb59-71"><a href="#cb59-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Antarctica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Antarctica"</span>),</span>
+<span id="cb59-72"><a href="#cb59-72" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Australia"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Australia"</span>),</span>
+<span id="cb59-73"><a href="#cb59-73" aria-hidden="true" tabindex="-1"></a>      <span class="st">"unknown"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"unknown"</span>)</span>
+<span id="cb59-74"><a href="#cb59-74" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb59-75"><a href="#cb59-75" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `Country = fct_collapse(...)`.
+Caused by warning:
+! Unknown levels in `f`: unknown</code></pre>
+</div>
+</div>
+<p>La agrupación de datos generó 7 niveles de categorías, en los que se incluyen 6 regiones continentales y “deconocido” (Unknown).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dinosaur_limpio<span class="sc">$</span>Country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Africa                                                                              
+ [2] America                                                                             
+ [3] Asia                                                                                
+ [4] Europe                                                                              
+ [5] Mongolia (&amp; China?)                                                                 
+ [6] Tanzania, USA, &amp; Portugal                                                           
+ [7] Portugal, USA, &amp; Tanzania                                                           
+ [8] Russia &amp; China                                                                      
+ [9] Antarctica                                                                          
+[10] Mongolia &amp; China                                                                    
+[11] China &amp; Mongolia                                                                    
+[12] Australia                                                                           
+[13] China &amp; South Korea                                                                 
+[14] Portugal &amp; USA                                                                      
+[15] China, Russia, &amp; Mongolia(?)                                                        
+[16] USA, South Africa, &amp; Zimbabwe                                                       
+[17] Germany &amp; France                                                                    
+[18] Portugal &amp; Uzbekistan                                                               
+[19] Mongolia &amp; Uzbekistan                                                               
+[20] South Africa &amp; China (?)                                                            
+[21] England, Belgium, USA, France, Mongolia &amp; Spain                                     
+[22] China, Mongolia &amp; Thailand                                                          
+[23] China &amp; Laos                                                                        
+[24] England &amp; Portugal                                                                  
+[25] Germany, France, Switzerland, Norway, &amp; Greenland                                   
+[26] China, Mongolia, Thailand (?), &amp; Russia                                             
+[27] Mongolia &amp; Canada                                                                   
+[28] Mongolia (&amp; China&nbsp;?)                                                                
+[29] Morocco, Niger &amp; Tunisia                                                            
+[30] Mongolia, USA, Canada &amp; China                                                       
+[31] Egypt &amp; Morocco                                                                     
+[32] Formerly referred to Phaedrolosaurus.                                               
+[33] A sauropod with an unusually long neck.                                             
+[34] A troodontid.                                                                       
+[35] A basal sauropodomorph.                                                             
+[36] It was once thought to walk on four legs. This is now unlikely.                     
+[37] A basal ceratopsian.                                                                
+[38] Probably a sauropod.                                                                
+[39] A large basal sauropodomorph.                                                       
+[40] The only anchiornithid to live in the Cretaceous.                                   
+[41] This name was a nomen nudum for eight years and was only formally described in 2018.
+[42] A very large sauropod.                                                              
+[43] A mamenchisaurid sauropod.                                                          
+[44] Probably a relative of Jeholosaurus.                                                
+[45] A small oviraptorosaur.                                                             
+[46] A hadrosauroid.                                                                     
+[47] Possibly a titanosaur.                                                              
+47 Levels: A basal ceratopsian. A basal sauropodomorph. ... USA, South Africa, &amp; Zimbabwe</code></pre>
+</div>
+</div>
+<p>Se elaboró una tabal de contingencias para observar la relación entre dos variables categóricas (Country y Diet), registrando las interaccipones que presenta cada una de estas variables con las de la otra categoría. Posteriormente se aplicó la prueba de <em>Chi cuadrada</em> Para ver si existe dependencia o relación entre estas variables.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> dinosaur_limpio[, <span class="fu">c</span>(<span class="st">"Diet"</span>, <span class="st">"Country"</span>)]</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">table</span>(datos<span class="sc">$</span>Diet, datos<span class="sc">$</span>Country)</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tabla)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       
+                        A basal ceratopsian. A basal sauropodomorph.
+  (carnivore)                              0                       0
+  (herbivore)                              0                       0
+  (unknown)                                0                       0
+  ?                                        0                       0
+  carnivore                                0                       0
+  Carnivore                                0                       0
+  carnivore/insectivore                    0                       0
+  carnivore/omnivore                       0                       0
+  carnivore?                               0                       0
+  herbivore                                2                       1
+  Herbivore                                0                       0
+  herbivore/omnivore                       0                       0
+  insectivore                              0                       0
+  omnivore                                 0                       1
+  omnivorous                               0                       0
+  unknown                                  0                       0
+                       
+                        A hadrosauroid. A large basal sauropodomorph.
+  (carnivore)                         0                             0
+  (herbivore)                         0                             0
+  (unknown)                           0                             0
+  ?                                   0                             0
+  carnivore                           0                             0
+  Carnivore                           0                             0
+  carnivore/insectivore               0                             0
+  carnivore/omnivore                  0                             0
+  carnivore?                          0                             0
+  herbivore                           1                             1
+  Herbivore                           0                             0
+  herbivore/omnivore                  0                             0
+  insectivore                         0                             0
+  omnivore                            0                             0
+  omnivorous                          0                             0
+  unknown                             0                             0
+                       
+                        A mamenchisaurid sauropod.
+  (carnivore)                                    0
+  (herbivore)                                    0
+  (unknown)                                      0
+  ?                                              0
+  carnivore                                      0
+  Carnivore                                      0
+  carnivore/insectivore                          0
+  carnivore/omnivore                             0
+  carnivore?                                     0
+  herbivore                                      1
+  Herbivore                                      0
+  herbivore/omnivore                             0
+  insectivore                                    0
+  omnivore                                       0
+  omnivorous                                     0
+  unknown                                        0
+                       
+                        A sauropod with an unusually long neck.
+  (carnivore)                                                 0
+  (herbivore)                                                 0
+  (unknown)                                                   0
+  ?                                                           0
+  carnivore                                                   0
+  Carnivore                                                   0
+  carnivore/insectivore                                       0
+  carnivore/omnivore                                          0
+  carnivore?                                                  0
+  herbivore                                                   1
+  Herbivore                                                   0
+  herbivore/omnivore                                          0
+  insectivore                                                 0
+  omnivore                                                    0
+  omnivorous                                                  0
+  unknown                                                     0
+                       
+                        A small oviraptorosaur. A troodontid.
+  (carnivore)                                 0             0
+  (herbivore)                                 0             0
+  (unknown)                                   0             0
+  ?                                           0             0
+  carnivore                                   0             1
+  Carnivore                                   0             0
+  carnivore/insectivore                       0             0
+  carnivore/omnivore                          0             0
+  carnivore?                                  0             0
+  herbivore                                   0             0
+  Herbivore                                   0             0
+  herbivore/omnivore                          0             0
+  insectivore                                 0             0
+  omnivore                                    1             0
+  omnivorous                                  0             0
+  unknown                                     0             0
+                       
+                        A very large sauropod. Africa Antarctica Australia
+  (carnivore)                                0      0          0         0
+  (herbivore)                                0      0          0         0
+  (unknown)                                  0      1          0         0
+  ?                                          0      0          0         2
+  carnivore                                  0     24          2         4
+  Carnivore                                  0      0          0         0
+  carnivore/insectivore                      0      0          0         0
+  carnivore/omnivore                         0      0          0         0
+  carnivore?                                 0      0          0         0
+  herbivore                                  1     52          4        17
+  Herbivore                                  0      1          0         0
+  herbivore/omnivore                         0      0          0         0
+  insectivore                                0      0          0         0
+  omnivore                                   0      4          0         0
+  omnivorous                                 0      0          0         0
+  unknown                                    0      0          0         0
+                       
+                        Europe Asia China &amp; Laos China &amp; Mongolia
+  (carnivore)                3    0            0                0
+  (herbivore)                1    0            0                0
+  (unknown)                  1    5            0                0
+  ?                          0    0            0                0
+  carnivore                 61  105            0                0
+  Carnivore                  0    2            0                0
+  carnivore/insectivore      0    0            0                0
+  carnivore/omnivore         0    4            0                0
+  carnivore?                 0    3            0                0
+  herbivore                112  223            1                2
+  Herbivore                  0    1            0                0
+  herbivore/omnivore         2    7            0                0
+  insectivore                0    0            0                0
+  omnivore                   1   35            0                0
+  omnivorous                 0    1            0                0
+  unknown                    0    1            0                0
+                       
+                        China &amp; South Korea China, Mongolia &amp; Thailand
+  (carnivore)                             0                          0
+  (herbivore)                             0                          0
+  (unknown)                               0                          0
+  ?                                       0                          0
+  carnivore                               0                          0
+  Carnivore                               0                          0
+  carnivore/insectivore                   0                          0
+  carnivore/omnivore                      0                          0
+  carnivore?                              0                          0
+  herbivore                               1                          1
+  Herbivore                               0                          0
+  herbivore/omnivore                      0                          0
+  insectivore                             0                          0
+  omnivore                                0                          0
+  omnivorous                              0                          0
+  unknown                                 0                          0
+                       
+                        China, Mongolia, Thailand (?), &amp; Russia
+  (carnivore)                                                 0
+  (herbivore)                                                 0
+  (unknown)                                                   0
+  ?                                                           0
+  carnivore                                                   0
+  Carnivore                                                   0
+  carnivore/insectivore                                       0
+  carnivore/omnivore                                          0
+  carnivore?                                                  0
+  herbivore                                                   1
+  Herbivore                                                   0
+  herbivore/omnivore                                          0
+  insectivore                                                 0
+  omnivore                                                    0
+  omnivorous                                                  0
+  unknown                                                     0
+                       
+                        China, Russia, &amp; Mongolia(?) Egypt &amp; Morocco
+  (carnivore)                                      0               0
+  (herbivore)                                      0               0
+  (unknown)                                        0               0
+  ?                                                0               0
+  carnivore                                        0               1
+  Carnivore                                        0               0
+  carnivore/insectivore                            0               0
+  carnivore/omnivore                               0               0
+  carnivore?                                       0               0
+  herbivore                                        1               0
+  Herbivore                                        0               0
+  herbivore/omnivore                               0               0
+  insectivore                                      0               0
+  omnivore                                         0               0
+  omnivorous                                       0               0
+  unknown                                          0               0
+                       
+                        England &amp; Portugal
+  (carnivore)                            0
+  (herbivore)                            0
+  (unknown)                              0
+  ?                                      0
+  carnivore                              0
+  Carnivore                              0
+  carnivore/insectivore                  0
+  carnivore/omnivore                     0
+  carnivore?                             0
+  herbivore                              1
+  Herbivore                              0
+  herbivore/omnivore                     0
+  insectivore                            0
+  omnivore                               0
+  omnivorous                             0
+  unknown                                0
+                       
+                        England, Belgium, USA, France, Mongolia &amp; Spain
+  (carnivore)                                                         0
+  (herbivore)                                                         0
+  (unknown)                                                           0
+  ?                                                                   0
+  carnivore                                                           0
+  Carnivore                                                           0
+  carnivore/insectivore                                               0
+  carnivore/omnivore                                                  0
+  carnivore?                                                          0
+  herbivore                                                           1
+  Herbivore                                                           0
+  herbivore/omnivore                                                  0
+  insectivore                                                         0
+  omnivore                                                            0
+  omnivorous                                                          0
+  unknown                                                             0
+                       
+                        Formerly referred to Phaedrolosaurus. Germany &amp; France
+  (carnivore)                                               0                0
+  (herbivore)                                               0                0
+  (unknown)                                                 0                0
+  ?                                                         0                0
+  carnivore                                                 1                1
+  Carnivore                                                 0                0
+  carnivore/insectivore                                     0                0
+  carnivore/omnivore                                        0                0
+  carnivore?                                                0                0
+  herbivore                                                 0                0
+  Herbivore                                                 0                0
+  herbivore/omnivore                                        0                0
+  insectivore                                               0                0
+  omnivore                                                  0                0
+  omnivorous                                                0                0
+  unknown                                                   0                0
+                       
+                        Germany, France, Switzerland, Norway, &amp; Greenland
+  (carnivore)                                                           0
+  (herbivore)                                                           0
+  (unknown)                                                             0
+  ?                                                                     0
+  carnivore                                                             0
+  Carnivore                                                             0
+  carnivore/insectivore                                                 0
+  carnivore/omnivore                                                    0
+  carnivore?                                                            0
+  herbivore                                                             1
+  Herbivore                                                             0
+  herbivore/omnivore                                                    0
+  insectivore                                                           0
+  omnivore                                                              0
+  omnivorous                                                            0
+  unknown                                                               0
+                       
+                        It was once thought to walk on four legs. This is now unlikely.
+  (carnivore)                                                                         0
+  (herbivore)                                                                         0
+  (unknown)                                                                           0
+  ?                                                                                   0
+  carnivore                                                                           1
+  Carnivore                                                                           0
+  carnivore/insectivore                                                               0
+  carnivore/omnivore                                                                  0
+  carnivore?                                                                          0
+  herbivore                                                                           0
+  Herbivore                                                                           0
+  herbivore/omnivore                                                                  0
+  insectivore                                                                         0
+  omnivore                                                                            0
+  omnivorous                                                                          0
+  unknown                                                                             0
+                       
+                        Mongolia &amp; Canada Mongolia &amp; China
+  (carnivore)                           0                0
+  (herbivore)                           0                0
+  (unknown)                             0                0
+  ?                                     0                0
+  carnivore                             0                3
+  Carnivore                             0                0
+  carnivore/insectivore                 0                0
+  carnivore/omnivore                    0                0
+  carnivore?                            0                0
+  herbivore                             0                3
+  Herbivore                             0                0
+  herbivore/omnivore                    0                0
+  insectivore                           0                0
+  omnivore                              1                0
+  omnivorous                            0                0
+  unknown                               0                0
+                       
+                        Mongolia &amp; Uzbekistan Mongolia (&amp; China&nbsp;?)
+  (carnivore)                               0                    0
+  (herbivore)                               0                    0
+  (unknown)                                 0                    0
+  ?                                         0                    0
+  carnivore                                 0                    1
+  Carnivore                                 0                    0
+  carnivore/insectivore                     0                    0
+  carnivore/omnivore                        0                    0
+  carnivore?                                0                    0
+  herbivore                                 1                    0
+  Herbivore                                 0                    0
+  herbivore/omnivore                        0                    0
+  insectivore                               0                    0
+  omnivore                                  0                    0
+  omnivorous                                0                    0
+  unknown                                   0                    0
+                       
+                        Mongolia (&amp; China?) Mongolia, USA, Canada &amp; China
+  (carnivore)                             0                             0
+  (herbivore)                             0                             0
+  (unknown)                               0                             0
+  ?                                       0                             0
+  carnivore                               1                             0
+  Carnivore                               0                             0
+  carnivore/insectivore                   0                             0
+  carnivore/omnivore                      0                             0
+  carnivore?                              0                             0
+  herbivore                               0                             1
+  Herbivore                               0                             0
+  herbivore/omnivore                      0                             0
+  insectivore                             0                             0
+  omnivore                                0                             0
+  omnivorous                              0                             0
+  unknown                                 0                             0
+                       
+                        Morocco, Niger &amp; Tunisia America Portugal &amp; USA
+  (carnivore)                                  0       0              0
+  (herbivore)                                  0       0              0
+  (unknown)                                    0       0              0
+  ?                                            0       0              0
+  carnivore                                    0     127              2
+  Carnivore                                    0       2              0
+  carnivore/insectivore                        0       1              0
+  carnivore/omnivore                           0       0              0
+  carnivore?                                   0       0              0
+  herbivore                                    1     278              2
+  Herbivore                                    0       0              0
+  herbivore/omnivore                           0       1              0
+  insectivore                                  0       1              0
+  omnivore                                     0      12              0
+  omnivorous                                   0       0              0
+  unknown                                      0       1              0
+                       
+                        Portugal &amp; Uzbekistan Portugal, USA, &amp; Tanzania
+  (carnivore)                               0                         0
+  (herbivore)                               0                         0
+  (unknown)                                 0                         0
+  ?                                         0                         0
+  carnivore                                 1                         1
+  Carnivore                                 0                         0
+  carnivore/insectivore                     0                         0
+  carnivore/omnivore                        0                         0
+  carnivore?                                0                         0
+  herbivore                                 0                         0
+  Herbivore                                 0                         0
+  herbivore/omnivore                        0                         0
+  insectivore                               0                         0
+  omnivore                                  0                         0
+  omnivorous                                0                         0
+  unknown                                   0                         0
+                       
+                        Possibly a titanosaur.
+  (carnivore)                                0
+  (herbivore)                                0
+  (unknown)                                  0
+  ?                                          0
+  carnivore                                  0
+  Carnivore                                  0
+  carnivore/insectivore                      0
+  carnivore/omnivore                         0
+  carnivore?                                 0
+  herbivore                                  1
+  Herbivore                                  0
+  herbivore/omnivore                         0
+  insectivore                                0
+  omnivore                                   0
+  omnivorous                                 0
+  unknown                                    0
+                       
+                        Probably a relative of Jeholosaurus.
+  (carnivore)                                              0
+  (herbivore)                                              0
+  (unknown)                                                0
+  ?                                                        0
+  carnivore                                                0
+  Carnivore                                                0
+  carnivore/insectivore                                    0
+  carnivore/omnivore                                       0
+  carnivore?                                               0
+  herbivore                                                1
+  Herbivore                                                0
+  herbivore/omnivore                                       0
+  insectivore                                              0
+  omnivore                                                 0
+  omnivorous                                               0
+  unknown                                                  0
+                       
+                        Probably a sauropod. Russia &amp; China
+  (carnivore)                              0              0
+  (herbivore)                              0              0
+  (unknown)                                0              0
+  ?                                        0              0
+  carnivore                                0              0
+  Carnivore                                0              0
+  carnivore/insectivore                    0              0
+  carnivore/omnivore                       0              0
+  carnivore?                               0              0
+  herbivore                                1              1
+  Herbivore                                0              0
+  herbivore/omnivore                       0              0
+  insectivore                              0              0
+  omnivore                                 0              0
+  omnivorous                               0              0
+  unknown                                  0              0
+                       
+                        South Africa &amp; China (?) Tanzania, USA, &amp; Portugal
+  (carnivore)                                  0                         0
+  (herbivore)                                  0                         0
+  (unknown)                                    0                         0
+  ?                                            0                         0
+  carnivore                                    0                         1
+  Carnivore                                    0                         0
+  carnivore/insectivore                        0                         0
+  carnivore/omnivore                           0                         0
+  carnivore?                                   0                         0
+  herbivore                                    1                         0
+  Herbivore                                    0                         0
+  herbivore/omnivore                           0                         0
+  insectivore                                  0                         0
+  omnivore                                     0                         0
+  omnivorous                                   0                         0
+  unknown                                      0                         0
+                       
+                        The only anchiornithid to live in the Cretaceous.
+  (carnivore)                                                           0
+  (herbivore)                                                           0
+  (unknown)                                                             0
+  ?                                                                     0
+  carnivore                                                             1
+  Carnivore                                                             0
+  carnivore/insectivore                                                 0
+  carnivore/omnivore                                                    0
+  carnivore?                                                            0
+  herbivore                                                             0
+  Herbivore                                                             0
+  herbivore/omnivore                                                    0
+  insectivore                                                           0
+  omnivore                                                              0
+  omnivorous                                                            0
+  unknown                                                               0
+                       
+                        This name was a nomen nudum for eight years and was only formally described in 2018.
+  (carnivore)                                                                                              0
+  (herbivore)                                                                                              0
+  (unknown)                                                                                                0
+  ?                                                                                                        0
+  carnivore                                                                                                0
+  Carnivore                                                                                                0
+  carnivore/insectivore                                                                                    0
+  carnivore/omnivore                                                                                       0
+  carnivore?                                                                                               0
+  herbivore                                                                                                1
+  Herbivore                                                                                                0
+  herbivore/omnivore                                                                                       0
+  insectivore                                                                                              0
+  omnivore                                                                                                 0
+  omnivorous                                                                                               0
+  unknown                                                                                                  0
+                       
+                        USA, South Africa, &amp; Zimbabwe
+  (carnivore)                                       0
+  (herbivore)                                       0
+  (unknown)                                         0
+  ?                                                 0
+  carnivore                                         1
+  Carnivore                                         0
+  carnivore/insectivore                             0
+  carnivore/omnivore                                0
+  carnivore?                                        0
+  herbivore                                         0
+  Herbivore                                         0
+  herbivore/omnivore                                0
+  insectivore                                       0
+  omnivore                                          0
+  omnivorous                                        0
+  unknown                                           0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>resultado_chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(tabla): Chi-squared approximation may be incorrect</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultado_chi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tabla
+X-squared = 288.71, df = 690, p-value = 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">24</span>,  <span class="dv">2</span>,  <span class="dv">4</span>, <span class="dv">64</span>, <span class="dv">110</span>, <span class="dv">129</span>,  <span class="dv">17</span>,</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">1</span>,   <span class="dv">0</span>,</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">4</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">53</span>,  <span class="dv">4</span>, <span class="dv">17</span>,<span class="dv">113</span>, <span class="dv">224</span>, <span class="dv">278</span>,  <span class="dv">32</span>,</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">2</span>,   <span class="dv">7</span>,   <span class="dv">1</span>,   <span class="dv">0</span>,</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">1</span>,   <span class="dv">0</span>,</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">1</span>,  <span class="dv">36</span>,  <span class="dv">12</span>,   <span class="dv">3</span>,</span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>,   <span class="dv">0</span>,  <span class="dv">2</span>,  <span class="dv">1</span>,   <span class="dv">6</span>,   <span class="dv">1</span>,   <span class="dv">0</span>),</span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">8</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(tabla) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Carnivore"</span>, <span class="st">"carnivore/insectivore"</span>, <span class="st">"carnivore/omnivore"</span>,</span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Herbivore"</span>, <span class="st">"herbivore/omnivore"</span>, <span class="st">"insectivore"</span>,</span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Omnivorous"</span>, <span class="st">"unknown"</span>)</span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tabla) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Antarctica"</span>, <span class="st">"Australia"</span>, <span class="st">"Europe"</span>,</span>
+<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Asia"</span>, <span class="st">"America"</span>, <span class="st">"unknown"</span>)</span>
+<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a>tabla_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(tabla))</span>
+<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tabla_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dieta"</span>, <span class="st">"Continente"</span>, <span class="st">"Frecuencia"</span>)</span>
+<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb69-25"><a href="#cb69-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-26"><a href="#cb69-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-27"><a href="#cb69-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla_df, <span class="fu">aes</span>(<span class="at">x =</span> Continente, <span class="at">y =</span> Frecuencia, <span class="at">fill =</span> Dieta)) <span class="sc">+</span></span>
+<span id="cb69-28"><a href="#cb69-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb69-29"><a href="#cb69-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb69-30"><a href="#cb69-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Porcentaje"</span>, </span>
+<span id="cb69-31"><a href="#cb69-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Distribución de dieta por continente"</span>) <span class="sc">+</span></span>
+<span id="cb69-32"><a href="#cb69-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb69-33"><a href="#cb69-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proyecto_final_Quarto_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El valor de P de la prueba de <em>Chi cuadrada</em> es de 0.000000001132, por lo que existe la suficiente evidencia para asumir que existe una relación entre la dieta y la región continental.</p>
+</section>
+<section id="pregunta-5-cómo-se-distribuyen-los-taxones-de-acuerdo-con-la-escala-geológica" class="level3">
+<h3 class="anchored" data-anchor-id="pregunta-5-cómo-se-distribuyen-los-taxones-de-acuerdo-con-la-escala-geológica">Pregunta 5: ¿Cómo se distribuyen los taxones de acuerdo con la escala geológica?</h3>
+<p>Primero se recatalogaron las edades de los registros agrupando las “épocas” con su respectivo periodo (Ej. Triásico, Jurasico y Cretacico), separando los registros cuya edad es desconocida o es indeterminada.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dinosaur_limpio<span class="sc">$</span>Country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>dinosaur_limpio <span class="ot">&lt;-</span> dinosaur <span class="sc">%&gt;%</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Period =</span> <span class="fu">str_trim</span>(Period),</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Period =</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>      Period,</span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Cretaceous"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Cretaceous"</span>,</span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Early Cretaceous"</span>,</span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Late Cretaceous"</span>,</span>
+<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Early-Late Cretaceous"</span>),</span>
+<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Jurassic"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Jurassic"</span>,</span>
+<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Middle Jurassic"</span>,</span>
+<span id="cb72-16"><a href="#cb72-16" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Early Jurassic"</span>),</span>
+<span id="cb72-17"><a href="#cb72-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Triassic"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Triassic"</span>,</span>
+<span id="cb72-18"><a href="#cb72-18" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Late Triassic"</span>),</span>
+<span id="cb72-19"><a href="#cb72-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Indeterminated"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Jurassic/Cretaceous"</span>,</span>
+<span id="cb72-20"><a href="#cb72-20" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Triassic or Jurassic"</span>,</span>
+<span id="cb72-21"><a href="#cb72-21" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Triassic/Jurassic"</span>),</span>
+<span id="cb72-22"><a href="#cb72-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Unknown"</span> <span class="ot">=</span> <span class="fu">c</span> (<span class="st">"unknown"</span>, <span class="st">"(unknown)"</span>)</span>
+<span id="cb72-23"><a href="#cb72-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb72-24"><a href="#cb72-24" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `Period = fct_collapse(...)`.
+Caused by warning:
+! Unknown levels in `f`: unknown</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(dinosaur_limpio<span class="sc">$</span>Period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Jurassic       Cretaceous     Triassic       Indeterminated Unknown       
+Levels: Unknown Cretaceous Jurassic Indeterminated Triassic</code></pre>
+</div>
+</div>
+<p>Se elaboró una tabla de frecuencias para observar la cómo se distribuyenn los registros de dinosaurios a travéz de los distintos periodos de tiempo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>tabla_frecuencias <span class="ot">&lt;-</span> dinosaur_limpio <span class="sc">%&gt;%</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Period, <span class="at">name =</span> <span class="st">"Frecuencia_Absoluta"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Relativa =</span> Frecuencia_Absoluta <span class="sc">/</span> <span class="fu">sum</span>(Frecuencia_Absoluta),</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Porcentaje =</span> Frecuencia_Relativa <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tabla_frecuencias)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Period Frecuencia_Absoluta Frecuencia_Relativa  Porcentaje
+1        Unknown                   1        0.0008665511  0.08665511
+2     Cretaceous                 811        0.7027729636 70.27729636
+3       Jurassic                 276        0.2391681109 23.91681109
+4 Indeterminated                  13        0.0112651646  1.12651646
+5       Triassic                  53        0.0459272097  4.59272097</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tabla_frecuencias)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Edad"</span>, <span class="st">"Frecuencia"</span>)</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla_frecuencias, <span class="fu">aes</span>(<span class="at">x =</span> Period, <span class="at">y =</span> Frecuencia_Absoluta)) <span class="sc">+</span></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribución de taxones por edad geocronológica"</span>, </span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Edades"</span>, </span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Proyecto_final_Quarto_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El mayor número de registros de dinosaurios lo posee el Cretácico, seguido por el Jurásico y Triásico respectivamente. Siendo las edades más recientes con las que cuentan con el mayor número de registros.</p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
