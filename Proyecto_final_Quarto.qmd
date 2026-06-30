@@ -168,7 +168,7 @@ unique(dinosaur_limpio$Period)
 ```
 
 ```{r}
-unique(dinosaur_limpio$Country)
+unique(dinosaurios$Country)
 ```
 
 ### Pregunta 1: ¿Qué dieta es la predominante en la muestra total de los dinosaurios registrados?
